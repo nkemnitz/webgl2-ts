@@ -10,7 +10,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <TypeScriptToolsVersion>2.0</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -28,8 +28,11 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
-    <TypeScriptCompile Include="ImageBitmap.ts" />
+    <TypeScriptCompile Include="imagebitmap.d.ts" />
+    <TypeScriptCompile Include="shadermanager.ts" />
+    <TypeScriptCompile Include="webgl-branding.d.ts" />
     <TypeScriptCompile Include="webgl2-context.d.ts" />
+    <TypeScriptCompile Include="webgl\shader.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">

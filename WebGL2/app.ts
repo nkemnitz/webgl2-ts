@@ -8,7 +8,7 @@
         return;
     }
 
-    let t: WebGLProgram = new WebGLShader();
+    
 
     console.log("WebGL 2.0 context successfully created.");
 };
