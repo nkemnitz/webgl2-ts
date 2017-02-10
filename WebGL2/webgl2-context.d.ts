@@ -1,8 +1,8 @@
 ﻿// 
 // Exported from: https://www.khronos.org/registry/webgl/specs/latest/2.0/
-// Version: Editor's Draft Wed Jan 4 11:56:30 2017 -0800
+// Version: Editor's Draft Tue Jan 17 18:14:10 2017 -0800
 
-interface WebGL2RenderingContext extends WebGLRenderingContext {
+interface WebGL2RenderingContext extends WebGLRenderingContext{
     readonly READ_BUFFER: number;                                   // 0x0C02
     readonly UNPACK_ROW_LENGTH: number;                             // 0x0CF2
     readonly UNPACK_SKIP_ROWS: number;                              // 0x0CF3
@@ -150,8 +150,8 @@ interface WebGL2RenderingContext extends WebGLRenderingContext {
     readonly FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE: number;             // 0x8216
     readonly FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE: number;           // 0x8217
     readonly FRAMEBUFFER_DEFAULT: number;                           // 0x8218
-    readonly DEPTH_STENCIL_ATTACHMENT: number;                      // 0x821A
-    readonly DEPTH_STENCIL: number;                                 // 0x84F9
+    //readonly DEPTH_STENCIL_ATTACHMENT: number;                      // 0x821A /* Already defined in WebGL1 constants */
+    //readonly DEPTH_STENCIL: number;                                 // 0x84F9 /* Already defined in WebGL1 constants */
     readonly UNSIGNED_INT_24_8: number;                             // 0x84FA
     readonly DEPTH24_STENCIL8: number;                              // 0x88F0
     readonly UNSIGNED_NORMALIZED: number;                           // 0x8C17
@@ -272,6 +272,7 @@ interface WebGL2RenderingContext extends WebGLRenderingContext {
     /* WebGL-specific enums */
     readonly MAX_CLIENT_WAIT_TIMEOUT_WEBGL: number;                 // 0x9247
 
+
     /* Buffer objects */
     // WebGL1:
     bufferData(target: number, size: number, usage: number): void;
@@ -316,13 +317,17 @@ interface WebGL2RenderingContext extends WebGLRenderingContext {
     // WebGL1 legacy entrypoints:
     texImage2D(target: number, level: number, internalformat: number,
         width: number, height: number, border: number, format: number,
-        type: number, pixels: ArrayBufferView | null): void;
+        type: number, pixels?: ArrayBufferView): void;
+    texImage2D(target: number, level: number, internalformat: number,
+        format: number, type: number, source: ImageData | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement): void; // May throw DOMException
     texImage2D(target: number, level: number, internalformat: number,
         format: number, type: number, source: ImageBitmap | ImageData | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement): void; // May throw DOMException
 
     texSubImage2D(target: number, level: number, xoffset: number, yoffset: number,
         width: number, height: number,
-        format: number, type: number, pixels: ArrayBufferView | null): void;
+        format: number, type: number, pixels?: ArrayBufferView): void;
+    texSubImage2D(target: number, level: number, xoffset: number, yoffset: number,
+        format: number, type: number, source: ImageData | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement): void; // May throw DOMException
     texSubImage2D(target: number, level: number, xoffset: number, yoffset: number,
         format: number, type: number, source: ImageBitmap | ImageData | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement): void; // May throw DOMException
 
